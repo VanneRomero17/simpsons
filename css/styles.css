@@ -1,0 +1,158 @@
+/* -------------- Configuraciones generales -------------- */
+
+header {
+    text-align: center;
+    background-color: #f1f1ed;
+    padding: 1rem 0;
+}
+
+header img {
+    width: 20rem;
+}
+
+/* ------------ Contenido principal ---------------------- */
+
+body {
+    font-family: 'Rancho', cursive;
+    background-color: #e9c110;
+    margin: 0;
+    padding: 0;
+}
+
+#simpsons {
+    display: grid;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.container {
+    perspective: 1000px; /* Cantidad de profundidad para la perspectiva */
+    display: inline-block;
+}
+
+.card {
+    width: 200px; /* Ancho del muñeco */
+    height: 300px; /* Altura del muñeco */
+    position: relative;
+    transform-style: preserve-3d; /* Mantiene la transformación 3D */
+    transition: transform 0.5s ease; /* Transición suave al rotar */
+    border: 1px solid #ccc; /* Borde del cuadro */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para efecto de profundidad */
+    background-color: #fff; /* Fondo blanco para el cuadro */
+    overflow: hidden;
+}
+
+.card:hover .card__inner {
+    transform: rotateY(180deg); /* Rotación al pasar el ratón */
+}
+
+.card__inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card__front,
+.card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la parte trasera */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.card__front {
+    background-color: #f9f9f9; /* Fondo claro para el frente */
+    padding: 1rem;
+}
+
+.card__back {
+    transform: rotateY(180deg); /* Girada 180 grados */
+    background-color: #e28d2b; /* Fondo para la parte trasera */
+    padding: 1rem;
+    color: #fff; /* Color de texto blanco */
+}
+
+.card__img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.quote {
+    font-style: italic;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 0.9rem;
+}
+
+/* ------------------- Pie de página --------------------- */
+
+footer {
+    text-align: center;
+    font-size: 1rem;
+    background-color: #29271E;
+    color: white;
+    padding: 1rem 0;
+}
+
+/* -------------- Botones de paginación ------------------ */
+
+.pagination {
+    text-align: center;
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+
+.pagination__item {
+    margin: 1rem;
+    color: white;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.pagination__item:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+/* ------------------- Media Queries -------------------- */
+
+@media (max-width: 320px) {
+    #simpsons {
+        grid-template-columns: repeat(1, 15rem);
+    }
+}
+
+@media (min-width: 768px) {
+    #simpsons {
+        grid-template-columns: repeat(2, 15rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    #simpsons {
+        grid-template-columns: repeat(3, 15rem);
+    }
+}
+
+@media (min-width: 2560px) {
+    #simpsons {
+        grid-template-columns: repeat(8, 15rem);
+    }
+}
